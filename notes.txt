@@ -1,0 +1,27 @@
+Database
+
+user
+    name
+    email
+    pswrd
+    roll
+    tel 1
+
+doctor 
+    address
+    tel 2
+    specialite
+    available
+        days
+        times
+    diplomas
+        title
+        img
+
+Cliniqes 
+    address 
+
+specialites
+    titre
+    logo
+
