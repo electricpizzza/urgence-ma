@@ -15,16 +15,23 @@ class Doctor extends Model
         'address2',
         'speciality',
         'profile',
-        'banner'
+        'banner',
+        'tel1',
+        'tel2'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function diplomas()
     {
         return $this->hasMany(Diploma::class);
     }
 
-    public function specialities()
+    public function speciality()
     {
-        return $this->hasMany(Speciality::class);
+        return $this->belongsTo(Speciality::class);
     }
 }

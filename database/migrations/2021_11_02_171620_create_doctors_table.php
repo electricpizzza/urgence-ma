@@ -20,6 +20,8 @@ class CreateDoctorsTable extends Migration
             $table->text('bio');
             $table->string('address1');
             $table->string('address2')->nullable();
+            $table->string('tel1');
+            $table->string('tel2')->nullable();
             $table->unsignedBigInteger('speciality');
             $table->foreign('speciality')->references('id')->on('specialities');
             $table->string('profile')->default('');
