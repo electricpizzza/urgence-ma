@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClinicsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,14 @@ class CreateClinicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('clinics', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->uuid('user');
             $table->foreign('user')->references('id')->on('users');
             $table->string('title');
-            $table->text('description');
-            $table->string('address1');
-            $table->string('address2')->nullable();
-            $table->string('tel');
-            $table->string('tel2')->nullable();
-            $table->string('profile')->default('');
-            $table->string('banner')->default('');
+            $table->longText('content');
+            $table->string('image');
+            $table->integer('vote')->default(1);
             $table->timestamps();
         });
     }
@@ -36,6 +32,6 @@ class CreateClinicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clinics');
+        Schema::dropIfExists('posts');
     }
 }

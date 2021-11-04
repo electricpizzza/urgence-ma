@@ -15,7 +15,7 @@ class CreateDoctorsTable extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user');
+            $table->uuid('user');
             $table->foreign('user')->references('id')->on('users');
             $table->text('bio');
             $table->string('address1');
