@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctor;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,6 +19,11 @@ class DoctorController extends Controller
         $this->middleware('guest');
     }
 
+    public function index()
+    {
+        $doctor = Doctor::first();
+        return response()->json(["doctor" => $doctor], 200);
+    }
 
     /**
      * Create a new doctor instance after a valid registration.

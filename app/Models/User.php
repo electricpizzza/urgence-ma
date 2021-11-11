@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
@@ -44,6 +45,6 @@ class User extends Authenticatable
 
     public function doctor()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(Doctor::class);
     }
 }

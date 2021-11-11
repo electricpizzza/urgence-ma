@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = User::first();
+        $user->doctor()->create([
+            'bio' => "aaa",
+            'address1' => "aaa",
+            'address2' => "aaa",
+            'speciality' => 1,
+            'profile' => "",
+            'banner' => "",
+            'tel1' => "",
+            'tel2' => ""
+        ]);
+        dd($user->doctor());
+
+        return view('home', compact("user"));
     }
 }
