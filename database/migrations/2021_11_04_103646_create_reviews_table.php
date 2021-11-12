@@ -15,9 +15,9 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->unsignedBigInteger('id');
-            $table->uuid('user');
+            $table->unsignedBigInteger('user');
             $table->foreign('user')->references('id')->on('users');
-            $table->uuid('object');
+            $table->unsignedBigInteger('object');
             $table->foreign('object')->references('id')->on('users');
             $table->string('title');
             $table->text('review')->nullable();

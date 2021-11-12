@@ -15,7 +15,7 @@ class CreateClinicsTable extends Migration
     {
         Schema::create('clinics', function (Blueprint $table) {
             $table->id();
-            $table->uuid('user');
+            $table->unsignedBigInteger('user');
             $table->foreign('user')->references('id')->on('users');
             $table->string('title');
             $table->text('description');
