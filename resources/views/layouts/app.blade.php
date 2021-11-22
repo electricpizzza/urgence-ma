@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Urgence Maroc') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -55,13 +55,13 @@
                             @guest
                                 @if (Route::has('login'))
                                     <a class="mr-2" href="{{ route('login') }}">
-                                        <span>{{ __('Login') }}</span>
+                                        <span>{{ __('Conexion') }}</span>
                                     </a>
                                 @endif
 
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}">
-                                        <span>{{ __('Register') }}</span>
+                                        <span>{{ __('Inscription') }}</span>
                                     </a>
                                 @endif
                             @else
@@ -74,7 +74,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                                                                                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Se deconecter') }} <img src="https://img.icons8.com/officel/24/b8d2fe/logout-rounded.png"/>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
