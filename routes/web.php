@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\DoctorController;
+use App\Models\Speciality;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +26,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/doctor', [DoctorController::class, "index"]);
+Route::view('/about', 'pages.about')->name("about");
+Route::view('/services', 'pages.services')->name("services");
+Route::view('/spécialites', 'pages.spécialites', ["specialities" => Speciality::all()])->name("specialites");
+
+
+// Route::middleware(['auth', 'doctor'])->group(function () {
+    
+// });

@@ -89,8 +89,11 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
                                         {{ __('Se deconecter') }} <i class="fas fa-sign-out-alt ml-5 "></i>
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('home') }}">
+                                        {{ __('Mon Profile') }} <i class="fas fa-user-alt ml-5 "></i>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -118,14 +121,17 @@
                 <div class="collapse navbar-collapse" id="navbarmain">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" href="{{ url('/') }}">Accueil</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">à propos</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('services') }}">Services</a>
+                        </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="department.html" id="dropdown02"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Department <i
+                            <a class="nav-link dropdown-toggle" href="{{ route('specialites') }}" id="dropdown02"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Spécialités <i
                                     class="icofont-thin-down"></i></a>
                             <ul class="dropdown-menu" aria-labelledby="dropdown02">
                                 <li><a class="dropdown-item" href="department.html">Departments</a></li>
