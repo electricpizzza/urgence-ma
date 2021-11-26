@@ -17,7 +17,11 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js"
+        integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous">
+    </script>
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -67,14 +71,26 @@
                             @else
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    <span>
+                                        @switch(Auth::user()->role)
+                                            @case ('doc')
+                                                <i class="fas fa-stethoscope  mx-2" aria-hidden="true"></i> Dr.
+                                            @break
+                                            @case('clin')
+                                                <i class="fas fa-building mx-2" aria-hidden="true"></i> Clinique
+                                            @break
+                                            @default
+                                                <i class="fas fa-user mx-2" aria-hidden="true"></i>
+                                        @endswitch
+                                        {{ Auth::user()->name }}
+                                    </span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Se deconecter') }} <img src="https://img.icons8.com/officel/24/b8d2fe/logout-rounded.png"/>
+                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Se deconecter') }} <i class="fas fa-sign-out-alt ml-5 "></i>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Speciality;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,22 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = User::first();
-        // $spes = Speciality::create([
-        //     'title' => "Cardiologue", 'logo' => "d"
-        // ]);
-        // $user->doctor()->create([
-        //     'bio' => "aaa",
-        //     'address1' => "aaa",
-        //     'address2' => "aaa",
-        //     'speciality' => 1,
-        //     'profile' => "",
-        //     'banner' => "",
-        //     'tel1' => "",
-        //     'tel2' => ""
-        // ]);
-        dd($user->doctor);
-
+        $user = Auth::user();
+        if ($user->role == "doc")
+            return view('doctor.profile', compact("user"));
         return view('home', compact("user"));
     }
 }
