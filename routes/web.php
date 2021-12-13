@@ -25,7 +25,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/doctor', [DoctorController::class, "index"]);
+Route::get('/doctors', [DoctorController::class, "index"]);
+Route::get('/doctors/{usernamme}', [DoctorController::class, "singleDoctor"]);
 Route::view('/about', 'pages.about')->name("about");
 Route::view('/services', 'pages.services')->name("services");
 Route::view('/spécialites', 'pages.spécialites', ["specialities" => Speciality::all()])->name("specialites");

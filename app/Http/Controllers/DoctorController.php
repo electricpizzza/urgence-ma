@@ -6,6 +6,7 @@ use App\Models\Doctor;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DoctorController extends Controller
 {
@@ -21,8 +22,17 @@ class DoctorController extends Controller
 
     public function index()
     {
-        $doctor = Doctor::first();
-        return response()->json(["doctor" => $doctor], 200);
+        $doctors = Doctor::all();
+        // return response()->json(["doctors" => $doctor], 200);
+        return view("doctor.doctors", compact("doctors"));
+    }
+
+    public function singleDoctor(string $username)
+    {
+        $doctor = Doctor::where('username', $username)->first();
+        if (!$doctor)
+            throw new NotFoundHttpException("Doctor not found");
+        return view("doctor.profile", compact("doctor"));
     }
 
     /**
