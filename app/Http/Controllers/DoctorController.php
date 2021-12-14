@@ -102,6 +102,21 @@ class DoctorController extends Controller
         ]);
         $imagePath = $data['profile']->store('uploads', 'public');
 
-        $profile = Image::make(public_path("storage/{$imagePath}"))->fit(300, 300)->save();
+        $profile = Image::make(public_path("storage/profiles/{$imagePath}"))->fit(300, 300)->save();
+        $user->doctor->update(["profile" => public_path("storage/profiles/{$imagePath}")]);
+        return redirect("doctor/" . $user->doctor->username);
+    }
+
+    public function changeBanner(Request $request)
+    {
+        $user = auth()->user;
+        $data = $request->validate([
+            'banner' => ['required', 'image'],
+        ]);
+        $imagePath = $data['banner']->store('uploads', 'public');
+
+        $banner = Image::make(public_path("storage/banners/{$imagePath}"))->fit(300, 300)->save();
+        $user->doctor->update(["banner" => public_path("storage/banners/{$imagePath}")]);
+        return redirect("doctor/" . $user->doctor->username);
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DoctorController;
 use App\Models\Speciality;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +34,5 @@ Route::view('/spécialites', 'pages.spécialites', ["specialities" => Speciality
 
 
 // Route::middleware(['auth', 'doctor'])->group(function () {
-    
+
 // });
