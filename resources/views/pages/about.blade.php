@@ -7,14 +7,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="block text-center">
-                        <span class="text-white">About Us</span>
-                        <h1 class="text-capitalize mb-5 text-lg">About Us</h1>
+                        <span class="text-white text-capitalize">à propos de nous</span>
+                        <h1 class="text-capitalize mb-5 text-lg text-capitalize">à propos de nous</h1>
 
                         <!-- <ul class="list-inline breadcumb-nav">
-                  <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-                  <li class="list-inline-item"><span class="text-white">/</span></li>
-                  <li class="list-inline-item"><a href="#" class="text-white-50">About Us</a></li>
-                </ul> -->
+                          <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+                          <li class="list-inline-item"><span class="text-white">/</span></li>
+                          <li class="list-inline-item"><a href="#" class="text-white-50 text-capitalize">à propos de nous</a></li>
+                        </ul> -->
                     </div>
                 </div>
             </div>
