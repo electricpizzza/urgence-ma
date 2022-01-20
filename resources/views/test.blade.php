@@ -15,7 +15,9 @@
 
 <body>
     <div id="app">
-        <example-component />
+        {{-- <example-component /> --}}
+        <h4 class="mb-0">Dr. {{ $doctor->user->name }}</h4>
+        <p>{{ $doctor->theSpeciality->title }}</p>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -29,9 +29,11 @@ class DoctorController extends Controller
 
     public function singleDoctor(string $username)
     {
-        $doctor = Doctor::where('username', $username)->first();
+        $doctor = User::where('username', $username)->first()->doctor;
+        // dd($doctor->theSpeciality);
         if (!$doctor)
             throw new NotFoundHttpException("Doctor not found");
+        return view("test", compact("doctor"));
         return view("doctor.profile", compact("doctor"));
     }
 

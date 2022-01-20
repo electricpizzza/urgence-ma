@@ -32,7 +32,7 @@ class Doctor extends Model
         return $this->hasMany(Diploma::class);
     }
 
-    public function speciality()
+    public function theSpeciality()
     {
         return $this->belongsTo(Speciality::class, "speciality", "id");
     }
