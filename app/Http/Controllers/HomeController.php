@@ -27,8 +27,16 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if ($user->role == "doc")
-            return view('doctor.profile', compact("user"));
-        return view('home', compact("user"));
+        switch ($user->role) {
+            case 'doc':
+                return view('doctor.profile', compact("user"));
+                break;
+            case 'clinic':
+                return redirect("/doctor/$user->username");
+                break;
+            default:
+                return view('home', compact("user"));
+                break;
+        }
     }
 }

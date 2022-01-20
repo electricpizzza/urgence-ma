@@ -32,6 +32,7 @@ Route::view('/about', 'pages.about')->name("about");
 Route::view('/services', 'pages.services')->name("services");
 Route::view('/spécialites', 'pages.spécialites', ["specialities" => Speciality::all()])->name("specialites");
 
+Route::view('/test', 'test')->name("test");
 
 // Route::middleware(['auth', 'doctor'])->group(function () {
 

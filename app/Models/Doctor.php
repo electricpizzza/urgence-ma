@@ -36,4 +36,8 @@ class Doctor extends Model
     {
         return $this->belongsTo(Speciality::class, "speciality", "id");
     }
+    public function schedule()
+    {
+        return $this->hasOne(Schedule::class, "doctor");
+    }
 }

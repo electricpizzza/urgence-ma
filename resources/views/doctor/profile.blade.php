@@ -12,10 +12,10 @@
                         <h1 class="text-capitalize mb-5 text-lg text-capitalize">Dr. {{ $doctor->user->name }}</h1>
 
                         <!-- <ul class="list-inline breadcumb-nav">
-                              <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-                              <li class="list-inline-item"><span class="text-white">/</span></li>
-                              <li class="list-inline-item"><a href="#" class="text-white-50">Doctor Details</a></li>
-                            </ul> -->
+                                      <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+                                      <li class="list-inline-item"><span class="text-white">/</span></li>
+                                      <li class="list-inline-item"><a href="#" class="text-white-50">Doctor Details</a></li>
+                                    </ul> -->
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="section-title">
-                        <h3>My Educational Qualifications</h3>
+                        <h3>Mes Etudes & Qualifications</h3>
                         <div class="divider my-4"></div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="sidebar-widget  gray-bg p-4">
-                        <h5 class="mb-4">Make Appoinment</h5>
+                        <h5 class="mb-4">Ma disponibilité</h5>
 
                         <ul class="list-unstyled lh-35">
                             <li class="d-flex justify-content-between align-items-center">

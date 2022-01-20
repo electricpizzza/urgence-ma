@@ -24,7 +24,6 @@ class DoctorController extends Controller
     public function index()
     {
         $doctors = Doctor::all();
-        // return response()->json(["doctors" => $doctor], 200);
         return view("doctor.doctors", compact("doctors"));
     }
 
@@ -53,10 +52,11 @@ class DoctorController extends Controller
         $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'role' => 'doc',
             'password' => Hash::make($data['password']),
         ]);
 
-        return $user->doctor->create([
+        return $user->doctor()->create([
             'bio' => $data['bio'],
             'address1' => $data['address1'],
             'address2' => $data['address2'],
