@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\Speciality;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -21,10 +22,14 @@ class DoctorController extends Controller
         // $this->middleware('guest');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $doctors = Doctor::all();
-        return view("doctor.doctors", compact("doctors"));
+        $doctors = Doctor::paginate(16);
+        if ($request->get("speciality"))
+            $doctors = Doctor::where("speciality", $request->get("speciality"))->paginate(16);
+        $specialities = Speciality::all();
+        dd($doctors);
+        return view("doctor.doctors", compact("doctors", "specialities"));
     }
 
     public function singleDoctor(string $username)

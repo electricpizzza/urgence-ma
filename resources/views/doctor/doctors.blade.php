@@ -10,10 +10,10 @@
                         <h1 class="text-capitalize mb-5 text-lg">Specalized doctors</h1>
 
                         <!-- <ul class="list-inline breadcumb-nav">
-                                                  <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-                                                  <li class="list-inline-item"><span class="text-white">/</span></li>
-                                                  <li class="list-inline-item"><a href="#" class="text-white-50">All Doctors</a></li>
-                                                </ul> -->
+                                                                  <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+                                                                  <li class="list-inline-item"><span class="text-white">/</span></li>
+                                                                  <li class="list-inline-item"><a href="#" class="text-white-50">All Doctors</a></li>
+                                                                </ul> -->
                     </div>
                 </div>
             </div>
@@ -40,24 +40,13 @@
                     <label class="btn active ">
                         <input type="radio" name="shuffle-filter" value="all" checked="checked" />All Department
                     </label>
-                    <label class="btn ">
-                        <input type="radio" name="shuffle-filter" value="cat1" />Cardiology
-                    </label>
-                    <label class="btn">
-                        <input type="radio" name="shuffle-filter" value="cat2" />Dental
-                    </label>
-                    <label class="btn">
-                        <input type="radio" name="shuffle-filter" value="cat3" />Neurology
-                    </label>
-                    <label class="btn">
-                        <input type="radio" name="shuffle-filter" value="cat4" />Medicine
-                    </label>
-                    <label class="btn">
-                        <input type="radio" name="shuffle-filter" value="cat5" />Pediatric
-                    </label>
-                    <label class="btn">
-                        <input type="radio" name="shuffle-filter" value="cat6" />Traumatology
-                    </label>
+                    @foreach ($specialities as $speciality)
+                        <a href="/doctors?speciality={{ $speciality->id }}">
+                            <label class="btn">
+                                <input type="radio" name="shuffle-filter" value="cat1" />{{ $speciality->title }}
+                            </label>
+                        </a>
+                    @endforeach
                 </div>
             </div>
 
@@ -72,7 +61,8 @@
                                 </div>
                             </div>
                             <div class="content mt-3">
-                                <h4 class="mb-0"><a href="doctor-single.html">{{ $doctor->user->name }}</a></h4>
+                                <h4 class="mb-0"><a
+                                        href="/doctors/{{ $doctor->username }}">{{ $doctor->user->name }}</a></h4>
                                 <p>{{ $doctor->theSpeciality->title }}</p>
                             </div>
                         </div>
@@ -221,6 +211,11 @@
                         </div>
                     </div>
                 </div> --}}
+                <div class="col-12">
+                    <div class="mb-4 m-auto">
+                        <?= $doctors->withQueryString()->links() ?>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
