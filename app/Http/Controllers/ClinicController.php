@@ -14,7 +14,8 @@ class ClinicController extends Controller
      */
     public function index()
     {
-        //
+        $clinics = Clinic::all();
+        return view('clinics.index', compact('clinics'));
     }
 
     /**
