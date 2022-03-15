@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\PostController;
 use App\Models\Speciality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,13 @@ Route::view('/spécialites', 'pages.spécialites', ["specialities" => Speciality
 
 Route::view('/test', 'test')->name("test");
 
-// Route::middleware(['auth', 'doctor'])->group(function () {
-
-// });
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('posts')->group(function () {
+        Route::get('/', [PostController::class, 'index'])->name('admin.posts.index');
+        Route::get('/create', [PostController::class, 'create'])->name('admin.posts.create');
+        Route::post('/create', [PostController::class, 'store'])->name('admin.posts.store');
+        Route::get('/edit/{id}', [PostController::class, 'edit'])->name('admin.posts.edit');
+        Route::put('/edit/{id}', [PostController::class, 'update'])->name('admin.posts.update');
+        Route::delete('/delete/{id}', [PostController::class, 'destroy'])->name('admin.posts.delete');
+    });
+});
